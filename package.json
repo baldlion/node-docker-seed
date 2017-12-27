@@ -1,0 +1,44 @@
+{
+  "name": "docker-seed",
+  "version": "0.0.1",
+  "description": "Docker seed project for Node.js and Express",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "webpack",
+    "clean": "rimraf dist",
+    "predev": "npm run clean",
+    "dev": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baldlion/node-docker-seed.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baldlion/node-docker-seed/issues"
+  },
+  "homepage": "https://github.com/baldlion/node-docker-seed#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chalk": "^2.3.0",
+    "nodemon": "^1.14.3",
+    "rimraf": "^2.6.2",
+    "standard": "^10.0.3",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-shell-plugin": "^0.5.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}

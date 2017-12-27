@@ -1,0 +1,40 @@
+const webpack = require('webpack')
+const path = require('path')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
+const ShellPlugin = require('webpack-shell-plugin')
+
+module.exports = {
+  entry: {
+      server: './src/index'
+  },
+
+  target: 'node',
+  externals: [nodeExternals()],
+
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
+
+  plugins: [
+    new ShellPlugin({onBuildEnd: ['./node_modules/.bin/nodemon dist/server.bundle.js --watch dist']})
+  ]
+}
